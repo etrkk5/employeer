@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="projects.etrkk5.employeer.EditEmployeeActivity"
+    android:background="@color/colorWhite">
+
+    <EditText
+        android:id="@+id/editTextEmployeeName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="10dp"
+        android:inputType="textPersonName"
+        android:hint="name"
+        android:textColor="@color/colorSoftBlack"
+        android:textColorHint="@color/colorTextProfile"/>
+
+    <EditText
+        android:id="@+id/editTextEmployeeSurname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="10dp"
+        android:inputType="textPersonName"
+        android:hint="surname"
+        android:layout_below="@+id/editTextEmployeeName"
+        android:textColor="@color/colorSoftBlack"
+        android:textColorHint="@color/colorTextProfile"/>
+
+    <EditText
+        android:id="@+id/editTextEmployeeEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="10dp"
+        android:inputType="textPersonName"
+        android:hint="email"
+        android:layout_below="@+id/editTextEmployeeSurname"
+        android:textColor="@color/colorSoftBlack"
+        android:textColorHint="@color/colorTextProfile"/>
+
+    <EditText
+        android:id="@+id/editTextEmployeePhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="10dp"
+        android:inputType="textPersonName"
+        android:hint="phone"
+        android:layout_below="@+id/editTextEmployeeEmail"
+        android:textColor="@color/colorSoftBlack"
+        android:textColorHint="@color/colorTextProfile"/>
+
+    <EditText
+        android:id="@+id/editTextEmployeeProfession"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="10dp"
+        android:inputType="textPersonName"
+        android:hint="profession"
+        android:layout_below="@+id/editTextEmployeePhone"
+        android:textColor="@color/colorSoftBlack"
+        android:textColorHint="@color/colorTextProfile"/>
+
+    <EditText
+        android:id="@+id/editTextEmployeeLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="10dp"
+        android:inputType="textPersonName"
+        android:hint="location"
+        android:layout_below="@+id/editTextEmployeeProfession"
+        android:textColor="@color/colorSoftBlack"
+        android:textColorHint="@color/colorTextProfile"/>
+
+    <EditText
+        android:id="@+id/editTextEmployeeAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="20dp"
+        android:inputType="textPersonName"
+        android:hint="age"
+        android:layout_below="@+id/editTextEmployeeLocation"
+        android:textColor="@color/colorSoftBlack"
+        android:textColorHint="@color/colorTextProfile"/>
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Save"
+        android:textAllCaps="false"
+        android:layout_below="@+id/editTextEmployeeAge"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/rounded_button_solid1"/>
+
+</RelativeLayout>

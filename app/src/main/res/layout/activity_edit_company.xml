@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="projects.etrkk5.employeer.EditCompanyActivity"
+    android:background="@color/colorWhite">
+
+    <EditText
+        android:id="@+id/editTextCompanyName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="10dp"
+        android:inputType="textPersonName"
+        android:hint="company name"
+        android:textColor="@color/colorSoftBlack"
+        android:textColorHint="@color/colorTextProfile"/>
+
+    <EditText
+        android:id="@+id/editTextCompanyLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="10dp"
+        android:inputType="textPersonName"
+        android:hint="company location"
+        android:layout_below="@+id/editTextCompanyName"
+        android:textColor="@color/colorSoftBlack"
+        android:textColorHint="@color/colorTextProfile"/>
+
+    <EditText
+        android:id="@+id/editTextCompanyEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="10dp"
+        android:inputType="textPersonName"
+        android:hint="company email"
+        android:layout_below="@+id/editTextCompanyLocation"
+        android:textColor="@color/colorSoftBlack"
+        android:textColorHint="@color/colorTextProfile"/>
+
+    <EditText
+        android:id="@+id/editTextCompanyPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="10dp"
+        android:inputType="textPersonName"
+        android:hint="company phone"
+        android:layout_below="@+id/editTextCompanyEmail"
+        android:textColor="@color/colorSoftBlack"
+        android:textColorHint="@color/colorTextProfile"/>
+
+    <EditText
+        android:id="@+id/editTextCompanyDescription"
+        android:minLines="6"
+        android:lines="8"
+        android:maxLines="10"
+        android:inputType="textMultiLine"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/editTextCompanyPhone"
+        android:hint="company description"
+        android:textColor="@color/colorSoftBlack"
+        android:textColorHint="@color/colorTextProfile" />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="25dp"
+        android:text="Save"
+        android:textAllCaps="false"
+        android:layout_below="@+id/editTextCompanyDescription"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/rounded_button_solid1"/>
+
+
+
+</RelativeLayout>
