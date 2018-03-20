@@ -81,6 +81,8 @@ public class ProfileEmployeeActivity extends AppCompatActivity implements View.O
                 textViewShowExperience.setText(employeeExperience);
                 textViewLocation.setText(employeeLocation);
 
+
+
             }
         });
     }

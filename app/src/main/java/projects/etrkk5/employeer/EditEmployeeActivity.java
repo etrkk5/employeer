@@ -35,7 +35,7 @@ public class EditEmployeeActivity extends AppCompatActivity implements View.OnCl
     EditText editTextEmployeeProfession;
     EditText editTextEmployeeLocation;
     EditText editTextEmployeeAge;
-    Button save;
+    Button save, buttonSkills;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,9 +52,11 @@ public class EditEmployeeActivity extends AppCompatActivity implements View.OnCl
         editTextEmployeeProfession = (EditText)findViewById(R.id.editTextEmployeeProfession);
         editTextEmployeeLocation = (EditText)findViewById(R.id.editTextEmployeeLocation);
         editTextEmployeeAge = (EditText)findViewById(R.id.editTextEmployeeAge);
+        buttonSkills = (Button)findViewById(R.id.buttonSkills) ;
         save = (Button)findViewById(R.id.buttonSave);
 
         save.setOnClickListener(this);
+        buttonSkills.setOnClickListener(this);
 
         getUserInformations();
     }
@@ -134,6 +136,11 @@ public class EditEmployeeActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View v) {
         if(v.getId() == save.getId()){
             userEdit();
+        }
+        if(v.getId() == buttonSkills.getId()){
+            Intent intent = new Intent(EditEmployeeActivity.this, SkillsActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
         }
     }
 }

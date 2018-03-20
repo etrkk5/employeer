@@ -36,7 +36,11 @@
         <activity
             android:name=".ProfileCompanyActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".EditCompanyActivity"
+        <activity
+            android:name=".EditCompanyActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".SkillsActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
     </application>
 
