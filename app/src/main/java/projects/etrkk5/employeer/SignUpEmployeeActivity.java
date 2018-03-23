@@ -140,6 +140,15 @@ public class SignUpEmployeeActivity extends AppCompatActivity implements View.On
                             startActivity(intent);
                         }
                     });
+
+                    HashMap<String, String> map = new HashMap<>();
+                    map.put("skill1", "");
+                    map.put("skill2", "");
+                    map.put("skill3", "");
+                    map.put("skill4", "");
+                    map.put("skill5", "");
+                    db.collection("skills").document(eid).set(map);
+
                 }else{
                     if(task.getException() instanceof FirebaseAuthUserCollisionException){
                         Toast.makeText(getApplicationContext(),"User is already registered!", Toast.LENGTH_SHORT).show();

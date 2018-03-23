@@ -8,7 +8,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -18,13 +21,8 @@ import projects.etrkk5.employeer.Profiles.employee;
 
 public class ProfileEmployeeActivity extends AppCompatActivity implements View.OnClickListener{
 
-    TextView textViewNameSurname;
-    TextView textViewLocation;
-    TextView textViewProfession;
-    TextView textViewShowAge;
-    TextView textViewShowExperience;
-    TextView textViewShowEmail;
-    TextView textViewShowPhone;
+    TextView textViewNameSurname, textViewLocation, textViewProfession, textViewShowAge, textViewShowExperience, textViewShowEmail, textViewShowPhone;
+    TextView textViewSkill1;
     ImageView imageViewEdit;
 
     private FirebaseFirestore db;
@@ -44,6 +42,8 @@ public class ProfileEmployeeActivity extends AppCompatActivity implements View.O
         textViewShowEmail = (TextView)findViewById(R.id.textViewShowEmail);
         textViewShowPhone = (TextView)findViewById(R.id.textViewShowPhone);
         imageViewEdit = (ImageView)findViewById(R.id.imageViewEdit);
+
+        textViewSkill1 = (TextView)findViewById(R.id.textViewSkill1);
 
         db= FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
@@ -80,8 +80,15 @@ public class ProfileEmployeeActivity extends AppCompatActivity implements View.O
                 textViewProfession.setText(employeeProfession);
                 textViewShowExperience.setText(employeeExperience);
                 textViewLocation.setText(employeeLocation);
+            }
+        });
 
-
+        db.collection("skills").document(eid).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                textViewSkill1.setText(task.getResult().get("skill1").toString() + ", " +task.getResult().get("skill2").toString() +
+                        ", " +task.getResult().get("skill3").toString() + ", " +task.getResult().get("skill4").toString() +
+                        ", " +task.getResult().get("skill5").toString());
 
             }
         });

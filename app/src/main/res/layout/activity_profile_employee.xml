@@ -186,6 +186,25 @@
                 android:layout_below="@+id/textViewShowEmail"
                 android:padding="10dp" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Skills: "
+                android:textColor="@color/colorTextProfile"
+                android:id="@+id/textViewSkills"
+                android:padding="10dp"
+                android:layout_below="@id/textViewPhone"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/colorTextProfile"
+                android:id="@+id/textViewSkill1"
+                android:padding="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/textViewShowPhone"
+                android:layout_marginLeft="200dp"/>
 
         </RelativeLayout>
     </RelativeLayout>

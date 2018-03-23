@@ -95,23 +95,27 @@ public class EditEmployeeActivity extends AppCompatActivity implements View.OnCl
         String employeePhone = editTextEmployeePhone.getText().toString().trim();
         String employeeProfession = editTextEmployeeProfession.getText().toString().trim();
         String employeeLocation = editTextEmployeeLocation.getText().toString().trim();
-        int employeeAge = Integer.parseInt(editTextEmployeeAge.getText().toString());
 
+        final String eid = mAuth.getCurrentUser().getUid();
+        HashMap<String, String> userMap = new HashMap<>();
 
-        if (employeeAge>18 && employeeAge<100) {
-            FirebaseUser currentUser = mAuth.getCurrentUser();
-            final String eid = currentUser.getUid();
+        if(!editTextEmployeeAge.getText().toString().equals("")){
+            int employeeAge = Integer.parseInt(editTextEmployeeAge.getText().toString());
+            if(employeeAge>18 && employeeAge<100){
+                String employeesAge = Integer.toString(employeeAge);
+                userMap.put("employeeAge", employeesAge);
+            }else{
+                editTextEmployeeAge.setError("Please enter a valid age(18 to 100)");
+                editTextEmployeeAge.requestFocus();
+            }
 
-            String employeesAge = Integer.toString(employeeAge);
-
-            HashMap<String, String> userMap = new HashMap<>();
+        }
             userMap.put("employeeName", employeeName);
             userMap.put("employeeSurname", employeeSurname);
             userMap.put("employeeEmail", employeeEmail);
             userMap.put("employeeLocation", employeeLocation);
             userMap.put("employeeProfession", employeeProfession);
             userMap.put("employeePhone", employeePhone);
-            userMap.put("employeeAge", employeesAge);
 
             db.collection("employee").document(eid).set(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
@@ -125,12 +129,8 @@ public class EditEmployeeActivity extends AppCompatActivity implements View.OnCl
                 }
             });
 
-        }else{
-            editTextEmployeeAge.setError("Please enter a valid age(18 to 100)");
-            editTextEmployeeAge.requestFocus();
         }
 
-    }
 
     @Override
     public void onClick(View v) {

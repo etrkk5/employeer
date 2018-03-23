@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="projects.etrkk5.employeer.SkillsActivity">
+    tools:context="projects.etrkk5.employeer.SkillsActivity"
+    android:background="@color/colorWhite">
 
     <EditText
         android:id="@+id/editTextSkill1"
@@ -24,7 +25,7 @@
         android:id="@+id/editTextSkill2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="25dp"
         android:layout_marginLeft="10dp"
         android:inputType="textPersonName"
@@ -37,7 +38,7 @@
         android:id="@+id/editTextSkill3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="25dp"
         android:layout_marginLeft="10dp"
         android:inputType="textPersonName"
@@ -50,7 +51,7 @@
         android:id="@+id/editTextSkill4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="25dp"
         android:layout_marginLeft="10dp"
         android:inputType="textPersonName"
@@ -63,7 +64,7 @@
         android:id="@+id/editTextSkill5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="25dp"
         android:layout_marginLeft="10dp"
         android:inputType="textPersonName"
@@ -72,53 +73,28 @@
         android:textColor="@color/colorSoftBlack"
         android:textColorHint="@color/colorTextProfile"/>
 
-    <EditText
-        android:id="@+id/editTextSkill6"
+    <TextView
+        android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginLeft="10dp"
-        android:inputType="textPersonName"
-        android:hint="add some skills..."
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="@color/colorTextProfile"
         android:layout_below="@+id/editTextSkill5"
-        android:textColor="@color/colorSoftBlack"
-        android:textColorHint="@color/colorTextProfile"/>
-
-    <EditText
-        android:id="@+id/editTextSkill7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginLeft="10dp"
-        android:inputType="textPersonName"
-        android:hint="add some skills..."
-        android:layout_below="@+id/editTextSkill6"
-        android:textColor="@color/colorSoftBlack"
-        android:textColorHint="@color/colorTextProfile"/>
-
-    <EditText
-        android:id="@+id/editTextSkill8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginLeft="10dp"
-        android:inputType="textPersonName"
-        android:hint="add some skills..."
-        android:layout_below="@+id/editTextSkill7"
-        android:textColor="@color/colorSoftBlack"
-        android:textColorHint="@color/colorTextProfile"/>
+        android:text="hint: add your top 5 skills to increase the chances that employers can find you."
+        />
 
     <Button
         android:id="@+id/buttonSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/description"
         android:background="@drawable/circle"
         android:drawableTop="@drawable/save"
-        android:layout_margin="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:text="Save"
         android:textAllCaps="false"
         android:textColor="@color/colorWhite"/>
