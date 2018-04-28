@@ -22,6 +22,9 @@ public class ProfileCompanyActivity extends AppCompatActivity implements View.On
     TextView textViewShowCompanyDescription;
     TextView textViewShowCompanyPhone;
     ImageView imageViewEdit;
+    ImageView imageViewSearch;
+    ImageView imageViewPostAd;
+    ImageView imageViewMessages;
 
     private FirebaseFirestore db;
     private FirebaseAuth mAuth;
@@ -39,8 +42,14 @@ public class ProfileCompanyActivity extends AppCompatActivity implements View.On
         textViewShowCompanyDescription = (TextView)findViewById(R.id.textViewShowCompanyDescription);
         textViewShowCompanyPhone = (TextView)findViewById(R.id.textViewShowCompanyPhone);
         imageViewEdit = (ImageView)findViewById(R.id.imageViewEdit);
+        imageViewSearch = (ImageView)findViewById(R.id.imageViewSearch);
+        imageViewPostAd = (ImageView)findViewById(R.id.imageViewPostAd);
+        imageViewMessages = (ImageView)findViewById(R.id.imageViewMessages);
 
         imageViewEdit.setOnClickListener(this);
+        imageViewSearch.setOnClickListener(this);
+        imageViewPostAd.setOnClickListener(this);
+        imageViewMessages.setOnClickListener(this);
 
         getCompanyInfortmations();
     }
@@ -71,6 +80,21 @@ public class ProfileCompanyActivity extends AppCompatActivity implements View.On
     public void onClick(View v) {
         if(v.getId() == imageViewEdit.getId()){
             Intent intent = new Intent(ProfileCompanyActivity.this, EditCompanyActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        }
+        if(v.getId() == imageViewSearch.getId()){
+            Intent intent = new Intent(ProfileCompanyActivity.this, SearchActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        }
+        if(v.getId() == imageViewPostAd.getId()){
+            Intent intent = new Intent(ProfileCompanyActivity.this, CompanyPostAdActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        }
+        if(v.getId() == imageViewMessages.getId()){
+            Intent intent = new Intent(ProfileCompanyActivity.this, CompanyMessagesActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         }

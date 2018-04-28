@@ -23,7 +23,7 @@ public class ProfileEmployeeActivity extends AppCompatActivity implements View.O
 
     TextView textViewNameSurname, textViewLocation, textViewProfession, textViewShowAge, textViewShowExperience, textViewShowEmail, textViewShowPhone;
     TextView textViewSkill1;
-    ImageView imageViewEdit;
+    ImageView imageViewEdit, imageViewSearch;
 
     private FirebaseFirestore db;
     private FirebaseAuth mAuth;
@@ -42,6 +42,7 @@ public class ProfileEmployeeActivity extends AppCompatActivity implements View.O
         textViewShowEmail = (TextView)findViewById(R.id.textViewShowEmail);
         textViewShowPhone = (TextView)findViewById(R.id.textViewShowPhone);
         imageViewEdit = (ImageView)findViewById(R.id.imageViewEdit);
+        imageViewSearch = (ImageView)findViewById(R.id.imageViewSearch);
 
         textViewSkill1 = (TextView)findViewById(R.id.textViewSkill1);
 
@@ -49,6 +50,7 @@ public class ProfileEmployeeActivity extends AppCompatActivity implements View.O
         mAuth = FirebaseAuth.getInstance();
 
         imageViewEdit.setOnClickListener(this);
+        imageViewSearch.setOnClickListener(this);
 
         getUserInformations();
 
@@ -98,6 +100,11 @@ public class ProfileEmployeeActivity extends AppCompatActivity implements View.O
     public void onClick(View v) {
         if(v.getId() == imageViewEdit.getId()){
             Intent intent = new Intent(ProfileEmployeeActivity.this, EditEmployeeActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        }
+        if(v.getId() == imageViewSearch.getId()){
+            Intent intent = new Intent(ProfileEmployeeActivity.this, SearchActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         }

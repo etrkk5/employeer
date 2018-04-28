@@ -42,6 +42,11 @@
         <activity
             android:name=".SkillsActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".SearchActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".CompanyPostAdActivity" />
+        <activity android:name=".CompanyMessagesActivity" />
     </application>
 
 </manifest>
