@@ -24,13 +24,26 @@
             android:src="@drawable/nav_menu_header_bg"
             app:srcCompat="@drawable/nav_menu_header_bg" />
 
+        <ImageView
+            android:id="@+id/imageViewSignOut"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="15dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/signout"
+            app:srcCompat="@drawable/signout" />
+
 
         <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:clickable="true"
             app:civ_border_width="3dp"
             app:civ_border_color="#FFFFFFFF"
-            android:id="@+id/profile"
+            android:id="@+id/profilePicture"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_below="@+id/header_cover_image"

@@ -55,9 +55,40 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editTextPassword = (EditText)findViewById(R.id.editTextPassword);
         progressBar = (ProgressBar)findViewById(R.id.progressbar);
 
+        checkIfUserAlreadyLoggedIn();
+
         textViewSignUp.setOnClickListener(this);
         buttonLogin.setOnClickListener(this);
 
+    }
+
+    public void checkIfUserAlreadyLoggedIn(){
+        if(mAuth.getCurrentUser() != null){
+            final String uid = mAuth.getCurrentUser().getUid();
+            fbDb.getReference().child("Users").child(uid).child("usersType").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if(dataSnapshot.exists()){
+                        final String value = dataSnapshot.getValue(String.class);
+                        if(value.length() == 8){
+                            Intent intent = new Intent(LoginActivity.this, ProfileEmployeeActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
+                        }
+                        if(value.length() == 7){
+                            Intent intent = new Intent(LoginActivity.this, ProfileCompanyActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
+                        }
+                    }
+
+                }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
     }
 
     public void userLogin(){

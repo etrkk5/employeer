@@ -22,19 +22,6 @@
             android:src="@drawable/nav_menu_header_bg"
             app:srcCompat="@drawable/nav_menu_header_bg" />
 
-        <ImageView
-            android:id="@+id/imageViewSignOut"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_margin="15dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:scaleType="center"
-            android:src="@drawable/signout"
-            app:srcCompat="@drawable/signout" />
-
         <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:clickable="true"
@@ -60,16 +47,6 @@
             android:elevation="4dp"
             android:paddingBottom="24dp">
 
-            <ImageView
-                android:id="@+id/imageViewSearch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="16dp"
-                android:clickable="true"
-                android:src="@android:drawable/ic_menu_search" />
 
             <ImageView
                 android:id="@+id/imageViewMessages"
@@ -82,28 +59,6 @@
                 android:layout_marginBottom="16dp"
                 android:clickable="true"
                 android:src="@drawable/messages" />
-
-
-            <ImageView
-                android:id="@+id/imageViewEdit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="16dp"
-                android:scaleType="center"
-                android:clickable="true"
-                android:src="@android:drawable/ic_menu_edit" />
-
-            <ImageView
-                android:id="@+id/imageViewPostAd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignStart="@+id/imageViewSearch"
-                android:clickable="true"
-                android:src="@drawable/findemployee" />
 
             <TextView
                 android:id="@+id/textViewCompanyName"

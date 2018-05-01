@@ -1,15 +1,16 @@
 package projects.etrkk5.employeer;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -74,11 +75,13 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                         public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                             name = task.getResult().get("employeeName").toString() + " " + task.getResult().get("employeeSurname").toString();
                             location = task.getResult().get("employeeLocation").toString();
+                            String usersId = task.getResult().getId().toString();
                             list.clear();
-                            itemList.add(new Item(name, location));
+                            itemList.add(new Item(name, location, usersId));
+                            recyclerView.setAdapter(itemAdapter);
                         }
                     });
-                    recyclerView.setAdapter(itemAdapter);
+
                 }
             }
         });
@@ -98,11 +101,13 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                         public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                             name = task.getResult().get("companyName").toString();
                             location = task.getResult().get("companyLocation").toString();
+                            final String usersId = task.getResult().getId();
+                            Log.e("usersId: ", usersId);
                             list1.clear();
-                            itemList.add(new Item(name, location));
+                            itemList.add(new Item(name, location, usersId));
+                            recyclerView.setAdapter(itemAdapter);
                         }
                     });
-                    recyclerView.setAdapter(itemAdapter);
                 }
             }
         });

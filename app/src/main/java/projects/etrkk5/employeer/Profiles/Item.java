@@ -7,10 +7,20 @@ package projects.etrkk5.employeer.Profiles;
 public class Item {
     private String name;
     private String location;
+    private String docsRef;
 
-    public Item(String name, String location) {
+    public Item(String name, String location, String docsRef) {
         this.name = name;
         this.location = location;
+        this.docsRef = docsRef;
+    }
+
+    public String getDocsRef() {
+        return docsRef;
+    }
+
+    public void setDocsRef(String docsRef) {
+        this.docsRef = docsRef;
     }
 
     public String getName() {

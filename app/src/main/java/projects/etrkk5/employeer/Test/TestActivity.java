@@ -38,16 +38,12 @@ public class TestActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
-
-
         mAuth.signInWithEmailAndPassword("etrkk5@gmail.com", "esref123").addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 getUserHaveSkill("Java");
             }
         });
-
-
     }
 
     public void getUserHaveSkill(final String skill){

@@ -49,7 +49,22 @@
             android:layout_below="@+id/textViewName"
             android:textColor="@color/colorTextProfile"
             />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewUserId"
+            android:layout_toRightOf="@+id/imageViewPhoto"
+            android:layout_below="@+id/textViewName"
+            android:textColor="@color/colorTextProfile"
+            android:visibility="invisible"
+            />
 
     </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewDocsRef"
+        android:visibility="invisible"/>
 
 </android.support.v7.widget.CardView>
