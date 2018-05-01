@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="projects.etrkk5.employeer.ProfileActivityForEmployee">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/layout"
+        android:background="@color/colorWhite">
+
+
+        <ImageView
+            android:id="@+id/header_cover_image"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerCrop"
+            android:src="@drawable/nav_menu_header_bg"
+            app:srcCompat="@drawable/nav_menu_header_bg" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:clickable="true"
+            app:civ_border_width="3dp"
+            app:civ_border_color="#FFFFFFFF"
+            android:id="@+id/profilePicture"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_below="@+id/header_cover_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-130dp"
+            android:elevation="5dp"
+            android:padding="20dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/man" />
+
+        <RelativeLayout
+            android:id="@+id/profile_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header_cover_image"
+            android:background="@color/colorButton"
+            android:elevation="4dp"
+            android:paddingBottom="24dp">
+
+            <ImageView
+                android:id="@+id/imageViewMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:clickable="true"
+                android:src="@drawable/messages" />
+
+            <TextView
+                android:id="@+id/textViewNameSurname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="70dp"
+                android:text=""
+                android:textColor="#fff"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewNameSurname"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text=""
+                android:textColor="#fff"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewProfession"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewLocation"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text=""
+                android:textColor="#fff"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/profile_layout"
+            android:background="@color/colorWhite"
+            android:orientation="vertical"
+            android:paddingTop="20dp"
+            android:paddingBottom="100dp"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Age:"
+                android:textColor="@color/colorTextProfile"
+                android:id="@+id/textViewAge"
+                android:padding="10dp"
+                android:layout_alignParentLeft="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/colorTextProfile"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:padding="10dp"
+                android:id="@+id/textViewShowAge"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Experience:"
+                android:textColor="@color/colorTextProfile"
+                android:id="@+id/textViewExperience"
+                android:padding="10dp"
+                android:layout_below="@+id/textViewAge"
+                android:layout_alignParentLeft="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/colorTextProfile"
+                android:id="@+id/textViewShowExperience"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/textViewShowAge"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email:"
+                android:textColor="@color/colorTextProfile"
+                android:id="@+id/textViewEmail"
+                android:padding="10dp"
+                android:layout_below="@+id/textViewExperience"
+                android:layout_alignParentLeft="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/colorTextProfile"
+                android:id="@+id/textViewShowEmail"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/textViewShowExperience"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone:"
+                android:textColor="@color/colorTextProfile"
+                android:id="@+id/textViewPhone"
+                android:padding="10dp"
+                android:layout_below="@+id/textViewEmail"
+                android:layout_alignParentLeft="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/colorTextProfile"
+                android:id="@+id/textViewShowPhone"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/textViewShowEmail"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Skills: "
+                android:textColor="@color/colorTextProfile"
+                android:id="@+id/textViewSkills"
+                android:padding="10dp"
+                android:layout_below="@id/textViewPhone"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/colorTextProfile"
+                android:id="@+id/textViewSkill1"
+                android:padding="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/textViewShowPhone"
+                android:layout_marginLeft="200dp"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+</ScrollView>
