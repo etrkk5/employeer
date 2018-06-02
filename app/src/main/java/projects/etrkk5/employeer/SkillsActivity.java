@@ -1,19 +1,19 @@
 package projects.etrkk5.employeer;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.HashMap;
 
 public class SkillsActivity extends AppCompatActivity implements View.OnClickListener{
@@ -32,12 +32,12 @@ public class SkillsActivity extends AppCompatActivity implements View.OnClickLis
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
-        editTextSkill1 = (EditText)findViewById(R.id.editTextSkill1);
-        editTextSkill2 = (EditText)findViewById(R.id.editTextSkill2);
-        editTextSkill3 = (EditText)findViewById(R.id.editTextSkill3);
-        editTextSkill4 = (EditText)findViewById(R.id.editTextSkill4);
-        editTextSkill5 = (EditText)findViewById(R.id.editTextSkill5);
-        buttonSave = (Button)findViewById(R.id.buttonSave);
+        editTextSkill1 = findViewById(R.id.editTextSkill1);
+        editTextSkill2 = findViewById(R.id.editTextSkill2);
+        editTextSkill3 = findViewById(R.id.editTextSkill3);
+        editTextSkill4 = findViewById(R.id.editTextSkill4);
+        editTextSkill5 = findViewById(R.id.editTextSkill5);
+        buttonSave = findViewById(R.id.buttonSave);
 
         getUserSkills();
 

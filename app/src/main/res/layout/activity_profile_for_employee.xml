@@ -49,18 +49,6 @@
             android:elevation="4dp"
             android:paddingBottom="24dp">
 
-            <ImageView
-                android:id="@+id/imageViewMessage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                android:clickable="true"
-                android:src="@drawable/messages" />
-
             <TextView
                 android:id="@+id/textViewNameSurname"
                 android:layout_width="wrap_content"

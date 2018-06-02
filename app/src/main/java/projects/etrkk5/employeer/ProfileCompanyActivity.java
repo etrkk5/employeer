@@ -4,10 +4,10 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -45,7 +45,6 @@ public class ProfileCompanyActivity extends AppCompatActivity implements View.On
     ImageView imageViewEdit;
     ImageView imageViewSearch;
     ImageView imageViewPostAd;
-    ImageView imageViewMessages;
     ImageView imageViewSignOut;
     CircleImageView profilePicture;
     String URL;
@@ -69,21 +68,19 @@ public class ProfileCompanyActivity extends AppCompatActivity implements View.On
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
-        textViewCompanyName = (TextView)findViewById(R.id.textViewCompanyName);
-        textViewCompanyLocation = (TextView)findViewById(R.id.textViewCompanyLocation);
-        textViewShowCompanyDescription = (TextView)findViewById(R.id.textViewShowCompanyDescription);
-        textViewShowCompanyPhone = (TextView)findViewById(R.id.textViewShowCompanyPhone);
-        imageViewEdit = (ImageView)findViewById(R.id.imageViewEdit);
-        imageViewSearch = (ImageView)findViewById(R.id.imageViewSearch);
-        imageViewPostAd = (ImageView)findViewById(R.id.imageViewPostAd);
-        imageViewMessages = (ImageView)findViewById(R.id.imageViewMessages);
-        imageViewSignOut = (ImageView)findViewById(R.id.imageViewSignOut);
-        profilePicture = (CircleImageView)findViewById(R.id.profilePicture);
+        textViewCompanyName = findViewById(R.id.textViewCompanyName);
+        textViewCompanyLocation = findViewById(R.id.textViewCompanyLocation);
+        textViewShowCompanyDescription = findViewById(R.id.textViewShowCompanyDescription);
+        textViewShowCompanyPhone = findViewById(R.id.textViewShowCompanyPhone);
+        imageViewEdit = findViewById(R.id.imageViewEdit);
+        imageViewSearch = findViewById(R.id.imageViewSearch);
+        imageViewPostAd = findViewById(R.id.imageViewPostAd);
+        imageViewSignOut = findViewById(R.id.imageViewSignOut);
+        profilePicture = findViewById(R.id.profilePicture);
 
         imageViewEdit.setOnClickListener(this);
         imageViewSearch.setOnClickListener(this);
         imageViewPostAd.setOnClickListener(this);
-        imageViewMessages.setOnClickListener(this);
         imageViewSignOut.setOnClickListener(this);
         profilePicture.setOnClickListener(this);
 
@@ -213,11 +210,6 @@ public class ProfileCompanyActivity extends AppCompatActivity implements View.On
         }
         if(v.getId() == imageViewPostAd.getId()){
             Intent intent = new Intent(ProfileCompanyActivity.this, CompanyPostAdActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-        }
-        if(v.getId() == imageViewMessages.getId()){
-            Intent intent = new Intent(ProfileCompanyActivity.this, CompanyMessagesActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         }

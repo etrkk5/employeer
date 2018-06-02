@@ -74,6 +74,16 @@
                 android:layout_marginTop="16dp"
                 android:clickable="true"
                 android:src="@android:drawable/ic_menu_search" />
+
+            <ImageView
+                android:id="@+id/imageViewGetAd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@+id/imageViewSearch"
+                android:clickable="true"
+                android:src="@drawable/findemployee" />
+
             <ImageView
                 android:id="@+id/imageViewEdit"
                 android:layout_width="wrap_content"

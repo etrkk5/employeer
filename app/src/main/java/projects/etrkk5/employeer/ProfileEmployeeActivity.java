@@ -4,15 +4,16 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -41,7 +42,7 @@ public class ProfileEmployeeActivity extends AppCompatActivity implements View.O
 
     TextView textViewNameSurname, textViewLocation, textViewProfession, textViewShowAge, textViewShowExperience, textViewShowEmail, textViewShowPhone;
     TextView textViewSkill1;
-    ImageView imageViewEdit, imageViewSearch, imageViewSignOut;
+    ImageView imageViewEdit, imageViewSearch, imageViewSignOut, imageViewGetAd;
     CircleImageView profilePicture;
     String URL;
 
@@ -59,19 +60,20 @@ public class ProfileEmployeeActivity extends AppCompatActivity implements View.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_employee);
 
-        textViewNameSurname = (TextView)findViewById(R.id.textViewNameSurname);
-        textViewLocation = (TextView)findViewById(R.id.textViewLocation);
-        textViewShowAge = (TextView)findViewById(R.id.textViewShowAge);
-        textViewShowExperience = (TextView)findViewById(R.id.textViewShowExperience);
-        textViewProfession = (TextView)findViewById(R.id.textViewProfession);
-        textViewShowEmail = (TextView)findViewById(R.id.textViewShowEmail);
-        textViewShowPhone = (TextView)findViewById(R.id.textViewShowPhone);
-        imageViewEdit = (ImageView)findViewById(R.id.imageViewEdit);
-        imageViewSearch = (ImageView)findViewById(R.id.imageViewSearch);
-        imageViewSignOut = (ImageView)findViewById(R.id.imageViewSignOut);
-        profilePicture = (CircleImageView)findViewById(R.id.profilePicture);
+        textViewNameSurname = findViewById(R.id.textViewNameSurname);
+        textViewLocation = findViewById(R.id.textViewLocation);
+        textViewShowAge = findViewById(R.id.textViewShowAge);
+        textViewShowExperience = findViewById(R.id.textViewShowExperience);
+        textViewProfession = findViewById(R.id.textViewProfession);
+        textViewShowEmail = findViewById(R.id.textViewShowEmail);
+        textViewShowPhone = findViewById(R.id.textViewShowPhone);
+        imageViewEdit = findViewById(R.id.imageViewEdit);
+        imageViewSearch = findViewById(R.id.imageViewSearch);
+        imageViewSignOut = findViewById(R.id.imageViewSignOut);
+        imageViewGetAd = findViewById(R.id.imageViewGetAd);
+        profilePicture = findViewById(R.id.profilePicture);
 
-        textViewSkill1 = (TextView)findViewById(R.id.textViewSkill1);
+        textViewSkill1 = findViewById(R.id.textViewSkill1);
 
         db= FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
@@ -82,6 +84,7 @@ public class ProfileEmployeeActivity extends AppCompatActivity implements View.O
         imageViewEdit.setOnClickListener(this);
         imageViewSearch.setOnClickListener(this);
         imageViewSignOut.setOnClickListener(this);
+        imageViewGetAd.setOnClickListener(this);
         profilePicture.setOnClickListener(this);
 
         getUserInformations();
@@ -94,12 +97,12 @@ public class ProfileEmployeeActivity extends AppCompatActivity implements View.O
         docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                employee employee = documentSnapshot.toObject(employee.class);
+                employee employee = documentSnapshot.toObject(projects.etrkk5.employeer.Profiles.employee.class);
                 String employeeName = employee.getEmployeeName();
                 String employeeSurname = employee.getEmployeeSurname();
                 String employeeEmail = employee.getEmployeeEmail();
                 String employeeAge = employee.getEmployeeAge();
-                String employeeExperience = employee.getEmployeeExperience();
+//              String employeeExperience = employee.getEmployeeExperience();
                 String employeePhone = employee.getEmployeePhone();
                 String employeeProfession = employee.getEmployeeProfession();
                 String employeeLocation = employee.getEmployeeLocation();
@@ -107,12 +110,15 @@ public class ProfileEmployeeActivity extends AppCompatActivity implements View.O
 
                 String employeeNameSurname = employeeName +" "+ employeeSurname;
 
+                if(mAuth.getCurrentUser() != null){
+                    textViewShowExperience.setText("0-1 Years");
+                }
+
                 textViewNameSurname.setText(employeeNameSurname);
                 textViewShowAge.setText(employeeAge);
                 textViewShowEmail.setText(employeeEmail);
                 textViewShowPhone.setText(employeePhone);
                 textViewProfession.setText(employeeProfession);
-                textViewShowExperience.setText(employeeExperience);
                 textViewLocation.setText(employeeLocation);
             }
         });
@@ -235,6 +241,11 @@ public class ProfileEmployeeActivity extends AppCompatActivity implements View.O
         }
         if(v.getId() == profilePicture.getId()){
             choseImage();
+        }
+        if(v.getId() == imageViewGetAd.getId()){
+            Intent intent = new Intent(ProfileEmployeeActivity.this, EmployeeGetAdActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
         }
     }
 }

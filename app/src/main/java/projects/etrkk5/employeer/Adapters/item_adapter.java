@@ -25,7 +25,7 @@ import projects.etrkk5.employeer.R;
  * Created by EsrefTurkok on 26.04.2018.
  */
 
-public class item_adapter extends RecyclerView.Adapter<item_adapter.item_holder> implements View.OnClickListener{
+public class item_adapter extends RecyclerView.Adapter<item_adapter.item_holder>{
     private List<Item> itemList;
     FirebaseDatabase fbDb;
     FirebaseAuth mAuth;
@@ -76,7 +76,7 @@ public class item_adapter extends RecyclerView.Adapter<item_adapter.item_holder>
     }
 
     @Override
-    public void onBindViewHolder(item_holder holder, int position) {
+    public void onBindViewHolder(final item_holder holder, int position) {
         Item item = itemList.get(position);
         holder.textViewName.setText(item.getName());
         holder.textViewLocation.setText(item.getLocation());
@@ -87,12 +87,6 @@ public class item_adapter extends RecyclerView.Adapter<item_adapter.item_holder>
     public int getItemCount() {
         return itemList.size();
     }
-
-    @Override
-    public void onClick(View view) {
-
-    }
-
 
     public class item_holder extends RecyclerView.ViewHolder{
         public TextView textViewName;

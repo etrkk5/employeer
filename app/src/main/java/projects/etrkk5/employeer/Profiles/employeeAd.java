@@ -1,19 +1,24 @@
 package projects.etrkk5.employeer.Profiles;
 
-
-/**
- * Created by EsrefTurkok on 28.04.2018.
- */
-
-public class Ad {
+public class employeeAd {
     private String title;
     private String location;
+    private String companyName;
     private String docsRef;
 
-    public Ad(String docsRef, String title, String location){
+    public employeeAd(String docsRef, String title, String location, String companyName){
         this.docsRef = docsRef;
         this.title = title;
         this.location = location;
+        this.companyName = companyName;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
     public String getDocsRef() {

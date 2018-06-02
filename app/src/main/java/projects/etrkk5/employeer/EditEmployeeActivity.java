@@ -1,9 +1,9 @@
 package projects.etrkk5.employeer;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,11 +13,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-
 
 import java.util.HashMap;
 
@@ -45,15 +43,15 @@ public class EditEmployeeActivity extends AppCompatActivity implements View.OnCl
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
-        editTextEmployeeName = (EditText)findViewById(R.id.editTextEmployeeName);
-        editTextEmployeeSurname = (EditText)findViewById(R.id.editTextEmployeeSurname);
-        editTextEmployeeEmail = (EditText)findViewById(R.id.editTextEmployeeEmail);
-        editTextEmployeePhone = (EditText)findViewById(R.id.editTextEmployeePhone);
-        editTextEmployeeProfession = (EditText)findViewById(R.id.editTextEmployeeProfession);
-        editTextEmployeeLocation = (EditText)findViewById(R.id.editTextEmployeeLocation);
-        editTextEmployeeAge = (EditText)findViewById(R.id.editTextEmployeeAge);
-        buttonSkills = (Button)findViewById(R.id.buttonSkills) ;
-        save = (Button)findViewById(R.id.buttonSave);
+        editTextEmployeeName = findViewById(R.id.editTextEmployeeName);
+        editTextEmployeeSurname = findViewById(R.id.editTextEmployeeSurname);
+        editTextEmployeeEmail = findViewById(R.id.editTextEmployeeEmail);
+        editTextEmployeePhone = findViewById(R.id.editTextEmployeePhone);
+        editTextEmployeeProfession = findViewById(R.id.editTextEmployeeProfession);
+        editTextEmployeeLocation = findViewById(R.id.editTextEmployeeLocation);
+        editTextEmployeeAge = findViewById(R.id.editTextEmployeeAge);
+        buttonSkills = findViewById(R.id.buttonSkills) ;
+        save = findViewById(R.id.buttonSave);
 
         save.setOnClickListener(this);
         buttonSkills.setOnClickListener(this);
@@ -67,7 +65,7 @@ public class EditEmployeeActivity extends AppCompatActivity implements View.OnCl
         docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                employee employee = documentSnapshot.toObject(employee.class);
+                employee employee = documentSnapshot.toObject(projects.etrkk5.employeer.Profiles.employee.class);
                 String employeeName = employee.getEmployeeName();
                 String employeeSurname = employee.getEmployeeSurname();
                 String employeeEmail = employee.getEmployeeEmail();

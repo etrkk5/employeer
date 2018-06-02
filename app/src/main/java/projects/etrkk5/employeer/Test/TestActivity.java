@@ -1,78 +1,95 @@
 package projects.etrkk5.employeer.Test;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import projects.etrkk5.employeer.R;
 
 public class TestActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "TestActivity: ";
     FirebaseFirestore db;
     FirebaseAuth mAuth;
-    List list;
+    List list, list1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
         list = new ArrayList();
+        list1 = new ArrayList();
 
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
-        mAuth.signInWithEmailAndPassword("etrkk5@gmail.com", "esref123").addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        mAuth.signInWithEmailAndPassword("tester@tester.com", "tester123").addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                getUserHaveSkill("Java");
+                Log.e(TAG, "hi");
+                getAds();
             }
         });
     }
 
-    public void getUserHaveSkill(final String skill){
-
-        db.collection("skills").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+    public void getAds(){
+        db.collection("company").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                for(DocumentSnapshot doc : task.getResult()) {
-                    if (doc.getData().containsValue(skill)) {
-                        if(doc.getData().toString().toLowerCase().contains("java")){
-                            String l = doc.getData().toString().toLowerCase();
-                            Log.e(TAG, ": " +l);
-                        }
+                for(DocumentSnapshot doc : task.getResult()){
+                    list.add(doc.getId().toString());
+                }
 
-                        list.add(doc.getId());
+                for(Object x : list){
+                    for(int i=0; i<10; i++){
+                        db.collection("newAds").document(x.toString() + "ad" + Integer.toString(i)).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                DocumentSnapshot doc = task.getResult();
+                                if(task.isSuccessful()){
+                                    if(doc.exists()){
+                                        Log.e(TAG, task.getResult().get("title").toString());
+                                        sleep();
+                                        Log.e(TAG, task.getResult().get("location").toString());
+                                        sleep();
+                                        Log.e(TAG, task.getResult().get("description").toString());
+                                    }
+                                }
+                            }
+                        });
                     }
                 }
 
-                for(int i=0; i<list.size(); i++){
-                    db.collection("employee").document(list.get(i).toString()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                            Log.e(TAG, task.getResult().get("employeeName").toString() + " " + task.getResult().get("employeeSurname").toString());
-                        }
-                    });
-                }
+
             }
         });
     }
+
+
+
+
+    public void sleep(){
+        try {
+            Thread.sleep(250);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
 }
 
 
@@ -88,6 +105,100 @@ public class TestActivity extends AppCompatActivity {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    public void firstJob(){
+//        db.collection("company").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                for(DocumentSnapshot doc : task.getResult()){
+//                    sleep();
+//                    Log.e(TAG, doc.getId());
+//                    list.add(doc.getId());
+//                }
+//                secondJob();
+//            }
+//        });
+//    }
+//
+//    public void secondJob(){
+//        for(int i=0; i<list.size(); i++){
+//            sleep();
+//            db.collection("company-ads").document(list.get(i).toString()).collection("ads").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                @Override
+//                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                    for(DocumentSnapshot doc : task.getResult()){
+//                        if(doc.getData().toString().toLowerCase().contains("java")){
+//                            Log.e(TAG, doc.getId());
+//                            list1.add(doc.getId());
+//                        }
+//                    }
+//                    thirdJob();
+//                }
+//            });
+//        }
+//    }
+//
+//    public void thirdJob(){
+//        for(int i=0; i<list.size(); i++){
+//            sleep();
+//            for(int j=0; j<list1.size(); j++){
+//                sleep();
+//                db.collection("company-ads").document(list.get(i).toString()).collection("ads").document(list1.get(j).toString()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                        if(task.isSuccessful()){
+//                            DocumentSnapshot doc = task.getResult();
+//                            if(doc.exists()){
+//                                Log.e(TAG, task.getResult().get("title").toString());
+//                            }
+//                        }
+//                    }
+//                });
+//            }
+//        }
+//    }
+
+
+
+//    public void getUserHaveSkill(final String skill){
+//
+//        db.collection("skills").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                for(DocumentSnapshot doc : task.getResult()) {
+//                    if (doc.getData().containsValue(skill)) {
+//                        if(doc.getData().toString().toLowerCase().contains("java")){
+//                            String l = doc.getData().toString().toLowerCase();
+//                            Log.e(TAG, ": " +l);
+//                        }
+//
+//                        list.add(doc.getId());
+//                    }
+//                }
+//
+//                for(int i=0; i<list.size(); i++){
+//                    db.collection("employee").document(list.get(i).toString()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                            Log.e(TAG, task.getResult().get("employeeName").toString() + " " + task.getResult().get("employeeSurname").toString());
+//                        }
+//                    });
+//                }
+//            }
+//        });
+//    }
 
 
 

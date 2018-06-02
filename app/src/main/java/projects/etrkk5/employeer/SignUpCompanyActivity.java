@@ -1,9 +1,9 @@
 package projects.etrkk5.employeer;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,12 +20,9 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class SignUpCompanyActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -50,12 +46,12 @@ public class SignUpCompanyActivity extends AppCompatActivity implements View.OnC
         db = FirebaseFirestore.getInstance();
         fbDb = FirebaseDatabase.getInstance();
 
-        textViewLogin = (TextView)findViewById(R.id.textViewSignUp);
-        buttonSignUp = (Button)findViewById(R.id.buttonSignUp);
-        editTextCompanyName = (EditText)findViewById(R.id.editTextCompanyName);
-        editTextEmail = (EditText)findViewById(R.id.editTextEmail);
-        editTextPassword = (EditText)findViewById(R.id.editTextPassword);
-        progressBar = (ProgressBar)findViewById(R.id.progressbar);
+        textViewLogin = findViewById(R.id.textViewSignUp);
+        buttonSignUp = findViewById(R.id.buttonSignUp);
+        editTextCompanyName = findViewById(R.id.editTextCompanyName);
+        editTextEmail = findViewById(R.id.editTextEmail);
+        editTextPassword = findViewById(R.id.editTextPassword);
+        progressBar = findViewById(R.id.progressbar);
 
         textViewLogin.setOnClickListener(this);
         buttonSignUp.setOnClickListener(this);
@@ -128,6 +124,14 @@ public class SignUpCompanyActivity extends AppCompatActivity implements View.OnC
                             startActivity(intent);
                         }
                     });
+
+
+                    HashMap<String, String> map1 = new HashMap<>();
+                    map1.put("title", "");
+                    map1.put("description", "");
+                    map1.put("location", "");
+                    db.collection("company-ads").document(cid).collection("ads").document("ad1").set(map1);
+
                 }else{
                     if(task.getException() instanceof FirebaseAuthUserCollisionException){
                         Toast.makeText(getApplicationContext(),"Company is already registered!", Toast.LENGTH_SHORT).show();

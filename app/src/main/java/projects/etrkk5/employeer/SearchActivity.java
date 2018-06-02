@@ -1,9 +1,8 @@
 package projects.etrkk5.employeer;
 
-import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -49,9 +49,9 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         list = new ArrayList();
         list1 = new ArrayList();
 
-        editTextSearch = (EditText) findViewById(R.id.editTextSearch);
-        imageViewSearch = (ImageView) findViewById(R.id.imageViewSearch);
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        editTextSearch =  findViewById(R.id.editTextSearch);
+        imageViewSearch =  findViewById(R.id.imageViewSearch);
+        recyclerView =  findViewById(R.id.recycler_view);
         itemAdapter = new item_adapter(itemList);
         mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
@@ -81,7 +81,6 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                             recyclerView.setAdapter(itemAdapter);
                         }
                     });
-
                 }
             }
         });
@@ -118,7 +117,9 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         if(view.getId() == imageViewSearch.getId()){
             itemList.clear();
             search = editTextSearch.getText().toString().toLowerCase();
-            getUser(search);
+            if(!search.equals("")){
+                getUser(search);
+            }
         }
     }
 }

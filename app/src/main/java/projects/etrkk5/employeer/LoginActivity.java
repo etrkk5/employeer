@@ -1,10 +1,9 @@
 package projects.etrkk5.employeer;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -23,9 +22,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
@@ -49,11 +45,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         db = FirebaseFirestore.getInstance();
         fbDb= FirebaseDatabase.getInstance();
 
-        textViewSignUp = (TextView)findViewById(R.id.textViewSignUp);
-        buttonLogin = (Button)findViewById(R.id.buttonLogin);
-        editTextEmail = (EditText)findViewById(R.id.editTextEmail);
-        editTextPassword = (EditText)findViewById(R.id.editTextPassword);
-        progressBar = (ProgressBar)findViewById(R.id.progressbar);
+        textViewSignUp = findViewById(R.id.textViewSignUp);
+        buttonLogin = findViewById(R.id.buttonLogin);
+        editTextEmail = findViewById(R.id.editTextEmail);
+        editTextPassword = findViewById(R.id.editTextPassword);
+        progressBar = findViewById(R.id.progressbar);
 
         checkIfUserAlreadyLoggedIn();
 

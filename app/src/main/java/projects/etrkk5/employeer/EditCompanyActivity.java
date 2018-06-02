@@ -1,9 +1,9 @@
 package projects.etrkk5.employeer;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,12 +41,12 @@ public class EditCompanyActivity extends AppCompatActivity implements View.OnCli
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
-        editTextCompanyName = (EditText)findViewById(R.id.editTextCompanyName);
-        editTextCompanyLocation = (EditText)findViewById(R.id.editTextCompanyLocation);
-        editTextCompanyEmail = (EditText)findViewById(R.id.editTextCompanyEmail);
-        editTextCompanyPhone = (EditText)findViewById(R.id.editTextCompanyPhone);
-        editTextCompanyDescription = (EditText)findViewById(R.id.editTextCompanyDescription);
-        save = (Button)findViewById(R.id.buttonSave);
+        editTextCompanyName = findViewById(R.id.editTextCompanyName);
+        editTextCompanyLocation = findViewById(R.id.editTextCompanyLocation);
+        editTextCompanyEmail = findViewById(R.id.editTextCompanyEmail);
+        editTextCompanyPhone = findViewById(R.id.editTextCompanyPhone);
+        editTextCompanyDescription = findViewById(R.id.editTextCompanyDescription);
+        save = findViewById(R.id.buttonSave);
 
         save.setOnClickListener(this);
 

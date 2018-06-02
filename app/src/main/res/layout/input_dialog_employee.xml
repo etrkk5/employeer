@@ -5,33 +5,35 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <EditText
-        android:id="@+id/editTextTitle"
+    <TextView
+        android:id="@+id/mTextViewTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="title..."
         android:inputType="text"
+        android:textSize="20sp"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"/>
 
-    <EditText
-        android:id="@+id/editTextDescription"
+    <TextView
+        android:id="@+id/mTextViewDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="description..."
         android:inputType="textMultiLine"
-        android:minLines="4"
-        android:maxLines="10"
+        android:textSize="16sp"
+        android:minLines="2"
+        android:maxLines="14"
         android:layout_margin="16dp"/>
 
-    <EditText
-        android:id="@+id/editTextLocation"
+    <TextView
+        android:id="@+id/mTextViewLocation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="location..."
         android:inputType="text"
-        android:layout_marginTop="16dp"
+        android:textSize="16sp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"/>
 

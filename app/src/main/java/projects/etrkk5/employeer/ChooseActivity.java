@@ -1,8 +1,8 @@
 package projects.etrkk5.employeer;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
@@ -16,8 +16,8 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose);
 
-        buttonEmployee = (Button)findViewById(R.id.buttonEmployee);
-        buttonCustomer = (Button)findViewById(R.id.buttonCustomer);
+        buttonEmployee = findViewById(R.id.buttonEmployee);
+        buttonCustomer = findViewById(R.id.buttonCustomer);
 
         buttonEmployee.setOnClickListener(this);
         buttonCustomer.setOnClickListener(this);
